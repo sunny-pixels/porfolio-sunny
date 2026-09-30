@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sunny Prajapati — Portfolio
 
-## Getting Started
+Single-page portfolio built on the "Release Notes" concept: hero as a version banner, then README, releases, deployments, systems, changelog, manifest, and a terminal-style contact section.
 
-First, run the development server:
+**Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · GSAP + ScrollTrigger · Lenis
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # http://localhost:3000
+npm run build
+npm run lint
+
+node scripts/capture-screenshots.mjs [slug ...]      # re-capture project screenshots into public/projects
+node scripts/qa-screens.mjs <outDir> 1440,390 [--reduce]  # scroll-through screenshots + console/overflow report
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `lib/content.ts` — all copy, projects, experience, skills (typed)
+- `lib/images.ts` — every image with alt text and focal point
+- `app/globals.css` — "Dusk" colour tokens and the type scale (`t-hero`, `t-section`, `t-micro`, …)
+- `lib/animations/*` — motion recipes; components call these inside `useGSAP` + `gsap.matchMedia()`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Placeholders to confirm
 
-## Learn More
+Search for `TODO: placeholder`:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Exact stack for Maliha, KK Jewels, Rahul Impex and SLA Monitor
+- `NEXT_PUBLIC_SITE_URL`: set it to the deployed domain for Open Graph URLs
