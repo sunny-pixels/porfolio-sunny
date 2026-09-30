@@ -21,21 +21,42 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const title = `${profile.name} | Software Engineer · Full-Stack & AI`;
 const description =
-  "Sunny Prajapati — software engineer building crafted, motion-rich interfaces and production AI systems. Next.js, TypeScript, Python, LLMs.";
+  "Portfolio of Sunny Prajapati: crafted, motion-led websites and production AI systems. Next.js, TypeScript, Python, LLMs and RAG.";
 
+/**
+ * Absolute base for share-image URLs. On Vercel the production domain is
+ * picked up automatically; NEXT_PUBLIC_SITE_URL overrides it (custom domain).
+ */
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
+// The share image comes from app/opengraph-image.jpg (file convention).
 export const metadata: Metadata = {
-  // TODO: placeholder — set NEXT_PUBLIC_SITE_URL to the deployed domain.
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: `${profile.name} — Software Engineer · Full-Stack & AI`,
+  metadataBase: new URL(siteUrl),
+  title,
   description,
-  authors: [{ name: profile.name }],
+  applicationName: profile.name,
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
+  keywords: ["Sunny Prajapati", "Software Engineer", "Full-Stack Developer", "Next.js", "AI", "Portfolio", "Ahmedabad"],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: `${profile.name} — Software Engineer`,
+    type: "website",
+    url: "/",
+    siteName: profile.name,
+    title,
     description,
     locale: "en_IN",
-    type: "website",
-    images: [{ url: "/projects/maliha.webp", width: 1600, height: 1000 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
   },
 };
 

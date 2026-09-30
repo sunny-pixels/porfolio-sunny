@@ -27,4 +27,7 @@ node scripts/qa-screens.mjs <outDir> 1440,390 [--reduce]  # scroll-through scree
 Search for `TODO: placeholder`:
 
 - Exact stack for Maliha, KK Jewels, Rahul Impex and SLA Monitor
-- `NEXT_PUBLIC_SITE_URL`: set it to the deployed domain for Open Graph URLs
+## Link previews (WhatsApp, LinkedIn, X)
+
+- Share image: `app/opengraph-image.jpg` (1200×630, ~60 KB; WhatsApp ignores images over ~300 KB), alt text in `opengraph-image.alt.txt`
+- On Vercel the absolute URL comes from `VERCEL_PROJECT_PRODUCTION_URL` automatically. On a custom domain, set `NEXT_PUBLIC_SITE_URL=https://your-domain`.
