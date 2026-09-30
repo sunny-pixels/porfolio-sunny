@@ -306,7 +306,7 @@ export const changelog: Commit[] = [
   {
     hash: "0a1e9c3",
     tag: "init",
-    period: "Oct 2022 — Present",
+    period: "Oct 2022 — Jun 2026",
     role: "B.Tech, Computer Science",
     org: "Pandit Deendayal Energy University",
     orgNote: "Gandhinagar · CGPA 8.28",
